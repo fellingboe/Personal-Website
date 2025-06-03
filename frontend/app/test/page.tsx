@@ -1,9 +1,11 @@
-export default function Home() {
+const Test = () => {
   return (
     <div className="flex justify-center items-center h-screen">
       <div className="text-4xl">
-        Landing Page!
+        Test Page
       </div>
     </div>
   );
 }
+
+export default Test;
