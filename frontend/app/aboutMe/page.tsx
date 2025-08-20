@@ -1,11 +1,11 @@
-const Test = () => {
+const AboutMe = () => {
   return (
     <div className="flex justify-center items-center h-screen">
       <div className="text-4xl">
-        Test Page
+        About Me
       </div>
     </div>
   );
 }
 
-export default Test;
+export default AboutMe;

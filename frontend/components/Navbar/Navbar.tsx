@@ -2,7 +2,8 @@ import React from "react";
 import Link from "next/link";
 
 const Navbar = () => {
-  {/*Not everything actually links to stuff yet*/}
+  {/*This is for the Navbar across the top of the page
+    Currently only the actual words link to the page - Should be whole box that links */}
   return (
       <div className="text-xl w-full h-15 bg-gray-500 sticky top-0">
         <div className="container mx-auto px-4 h-full">
@@ -15,18 +16,18 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="p-4 rounded-md hover:bg-gray-600">
-                <Link href="/test">
-                  <p>Test</p>
+                <Link href="/shop">
+                  <p>Shop</p>
                 </Link>
               </li>
               <li className="p-4 rounded-md hover:bg-gray-600">
-                <Link href="/calendar">
-                  <p>Calendar</p>
+                <Link href="/aboutMe">
+                  <p>About Me</p>
                 </Link>
               </li>
               <li className="p-4 rounded-md hover:bg-gray-600">
-                <Link href="/contacts">
-                  <p>Contacts</p>
+                <Link href="/contactMe">
+                  <p>Contact Me</p>
                 </Link>
               </li>
             </ul>
