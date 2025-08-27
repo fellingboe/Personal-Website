@@ -11,6 +11,24 @@ const Shop = () => {
     const [productList, setProductList] = useState([]);
     // Init your Web SDK
 
+
+    interface Doll {
+      ID: number;
+      Name: string;
+      Image: string;
+      Price: number;
+      Info: string;
+    }
+
+
+    const [DollList, setDollList] = useState<Doll[]>([]);
+
+    useEffect(() => {
+        fetch('/DollInfo.Json')
+            .then(response => response.json())
+            .then(data => setDollList(data.Dolls));
+    }, []);
+
     {/*
 
     const sdk = new Appwrite();
@@ -88,10 +106,12 @@ const Shop = () => {
       }
     }
 
-    return (
+
+    {/*
+
       <div className='product-catalog'>
 
-        {/* This is coed for a form to submit new products*/}
+        // This is code for a form to submit new products
         <div className="product-container mt-5 md:mt-0 md:col-span-2">
           <form action="#" method="POST">
             <div className="shadow sm:rounded-md sm:overflow-hidden">
@@ -149,7 +169,7 @@ const Shop = () => {
                   </div>
                 </div>
 
-                {/* This is the button that submits it. It call the function at onClick - this function currently does */}
+                // This is the button that submits it. It call the function at onClick - this function currently does
                 <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
                   <button
                     type="button"
@@ -164,52 +184,68 @@ const Shop = () => {
           </form>
         </div>
 
-
-
-        {/* This is the part that actually displays and lists the products for viewing*/}
-        <div className="bg-white">
-          <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-            <h2 className="sr-only">Products</h2>
-            {
-              productList ? (
-                <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-                  {
-                    productList.map(({productName, productImage, productPrice, $id}) => (
-                      <a href="#" className="group" id={$id}>
-                        <div className="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
-                          <img src={productImage} alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." className="w-full h-full object-center object-cover group-hover:opacity-75" />
-                        </div>
-                        <h3 className="mt-4 text-sm text-gray-700">{productName}</h3>
-                        <p className="mt-1 text-lg font-medium text-gray-900">${productPrice}</p>
-                        <button
-                          type="button"
-                          className="cursor inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                          onClick={()=> handleDelete()}
-                        >
-                        {/* 
-                          onClick={()=> handleDelete($id)}     This is being commented becuase new dummy delete function doesnt take any arguments
-                        */}
-                        Delete
-                      </button>
-                      </a>
-                    ))
-                  }
-                </div>
-              ) : null
-            }
-              
-
-
-
-          </div>
+      <div className="bg-white">
+        <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+          <h2 className="sr-only">Products</h2>
+          {
+            //productList ? (
+              <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+                {
+                  //productList.map(({productName, productImage, productPrice, $id}) => (
+                  DollList.map(Doll =>  (
+                    //<a href="#" className="group" id={$id}>
+                    <a key={Doll.ID} href="#" className="group">
+                      <div className="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
+                        <img src={"/Garfield_No_Compassion"} alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." className="w-full h-full object-center object-cover group-hover:opacity-75" />
+                      </div>
+                      <h3 className="mt-4 text-sm text-gray-700">{Doll.Name}</h3>
+                      <p className="mt-1 text-lg font-medium text-gray-900">${Doll.Price}</p>
+                      <button
+                        type="button"
+                        className="cursor inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                        onClick={()=> handleDelete()} //onClick={()=> handleDelete($id)}     This is being commented becuase new dummy delete function doesnt take any arguments
+                      >
+                      Delete
+                    </button>
+                    </a>
+                  ))
+                }
+              </div>
+            //) : null
+          }
+        </div>
       </div>
+      */}
+    // </div>
+
+
+    return (
+    
+      // This is the part that actually displays and lists the products for viewing
+
+      <div>
+          <h2>Doll List</h2>
+          <ul>
+              {DollList.map(Doll => (
+                  <li key={Doll.ID}>
+                    <img src={Doll.Image} alt={Doll.Name}/>
+                      <p>
+                          Name:
+                          {Doll.Name}
+                      </p>
+                      <p>
+                          Price:
+                          {Doll.Price}
+                      </p>
+                      <p>
+                          Extra info:
+                          {Doll.Info}
+                      </p>
+                      {/* Add more user data fields as needed */}
+                  </li>
+              ))}
+          </ul>
       </div>
-
-
-
-
-
-
     );
   }
   

@@ -1,0 +1,7 @@
+{
+  "Dolls": [
+    {"ID":1, "Name":"Joey", "Image":"Joey_Doll.png", "Price":100, "Info":"Joey's a good 10 year old boy..."},
+    {"ID":2, "Name":"Grandma", "Image":"Grandma_Doll.jpg", "Price":50, "Info":"Grandma trying hula hoop..."},
+    {"ID":3, "Name":"Thanx Spanx", "Image":"Thanx_Spanx.jpg", "Price":20, "Info":"Showing off my new figure. I feel lighter than air"}
+  ]
+}
