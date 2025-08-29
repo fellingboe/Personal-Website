@@ -107,11 +107,11 @@ const Shop = () => {
     }
 
 
-    {/*
 
+    return (
       <div className='product-catalog'>
 
-        // This is code for a form to submit new products
+        {/*This is code for a form to submit new products
         <div className="product-container mt-5 md:mt-0 md:col-span-2">
           <form action="#" method="POST">
             <div className="shadow sm:rounded-md sm:overflow-hidden">
@@ -169,7 +169,7 @@ const Shop = () => {
                   </div>
                 </div>
 
-                // This is the button that submits it. It call the function at onClick - this function currently does
+                This is the button that submits it. It call the function at onClick - this function currently does
                 <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
                   <button
                     type="button"
@@ -183,6 +183,7 @@ const Shop = () => {
             </div>
           </form>
         </div>
+        */}
 
       <div className="bg-white">
         <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
@@ -196,7 +197,7 @@ const Shop = () => {
                     //<a href="#" className="group" id={$id}>
                     <a key={Doll.ID} href="#" className="group">
                       <div className="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
-                        <img src={"/Garfield_No_Compassion"} alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." className="w-full h-full object-center object-cover group-hover:opacity-75" />
+                        <img src={Doll.Image} alt={Doll.Info} className="w-full h-full object-center object-cover group-hover:opacity-75" />
                       </div>
                       <h3 className="mt-4 text-sm text-gray-700">{Doll.Name}</h3>
                       <p className="mt-1 text-lg font-medium text-gray-900">${Doll.Price}</p>
@@ -215,10 +216,16 @@ const Shop = () => {
           }
         </div>
       </div>
-      */}
-    // </div>
+    </div>
+
+    );
+  }
+  
+  export default Shop;
 
 
+
+  {/*
     return (
     
       // This is the part that actually displays and lists the products for viewing
@@ -241,17 +248,11 @@ const Shop = () => {
                           Extra info:
                           {Doll.Info}
                       </p>
-                      {/* Add more user data fields as needed */}
                   </li>
               ))}
           </ul>
       </div>
-    );
-  }
-  
-  export default Shop;
 
-
-
+*/}
 
   

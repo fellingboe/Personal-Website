@@ -10,26 +10,28 @@ const Navbar = () => {
           <div className="flex justify-between items-center h-full">
 
             <ul className="hidden md:flex gap-x-1 text-white">
-            <li className="p-4 rounded-md hover:bg-gray-600">
-                <Link href="/">
-                  <p>Home</p>
-                </Link>
-              </li>
-              <li className="p-4 rounded-md hover:bg-gray-600">
-                <Link href="/shop">
-                  <p>Shop</p>
-                </Link>
-              </li>
-              <li className="p-4 rounded-md hover:bg-gray-600">
-                <Link href="/aboutMe">
-                  <p>About Me</p>
-                </Link>
-              </li>
-              <li className="p-4 rounded-md hover:bg-gray-600">
-                <Link href="/contactMe">
-                  <p>Contact Me</p>
-                </Link>
-              </li>
+              <li>
+                  <Link href="/" className="block p-4 rounded-md hover:bg-gray-600">
+                    <p>Home</p>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/shop" className="block p-4 rounded-md hover:bg-gray-600">
+                    <p>Shop</p>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/aboutMe" className="block p-4 rounded-md hover:bg-gray-600">
+                    <p>About Me</p>
+                  </Link>
+                </li>
+                <li >
+                  <Link href="/contactMe" className="block p-4 rounded-md hover:bg-gray-600">
+                    <button>
+                      Contact Me
+                    </button>
+                  </Link>
+                </li>
             </ul>
           </div>
         </div>
